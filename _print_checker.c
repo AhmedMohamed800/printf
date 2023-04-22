@@ -17,13 +17,13 @@ void _print_checker(char character_to_check,
 	switch (character_to_check)
 	{
 		case 'c':
-			print_family[0].func(buffer, ptr, va_arg(args, int));
+			print_family[0].func(buffer, ptr, args);
 			break;
 		case '%':
 			print_family[1].func(buffer, ptr);
 			break;
 		case 's':
-			print_family[2].func(buffer, ptr, va_arg(args, char*));
+			print_family[2].func(buffer, ptr, args);
 			break;
 		default:
 			break;

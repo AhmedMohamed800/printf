@@ -4,11 +4,11 @@
 * _print_character - prints characters
 * @buffer: pointer to buffer variable
 * @x: point to x variable
-* @value_c: the character value
+* @args: _printf argumetns
 * Return: Nothing
 */
-void _print_character(char *buffer, int *x, int value_c)
+void _print_character(char *buffer, int *x, va_list args)
 {
-	buffer[*x] = value_c;
+	buffer[*x] = va_arg(args, int);
 	(*x)++;
 }

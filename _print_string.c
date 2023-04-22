@@ -4,13 +4,14 @@
 * _print_string - prints a string
 * @buffer: pointer buffer handler
 * @x: pointer to x variable
-* @value_c: string to print
+* @args: _printf's arguments
 * Return: nothing
 */
-void _print_string(char *buffer, int *x, char *value_c)
+void _print_string(char *buffer, int *x, va_list args)
 {
 	int y, i;
 	char *str = "(null)";
+	char *value_c = va_arg(args, char*);
 
 	if (value_c == NULL)
 	{
