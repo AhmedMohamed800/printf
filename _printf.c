@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 	char buffer[1024];
 	int i, x = 0;
 	int *ptr = &x;
+	int *second_ptr = &i;
 
 	va_list(args);
 	va_start(args, format);
@@ -19,8 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			_print_checker(format[i + 1], buffer, ptr, args);
-			i++;
+			_print_checker(format[i + 1], buffer, ptr, args, second_ptr);
 		}
 		else
 		{

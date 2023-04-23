@@ -21,6 +21,6 @@ void _print_percent(char *buffer, int *x);
 void _print_character(char *buffer, int *x, va_list args);
 void _print_string(char *buffer, int *x, va_list args);
 void _print_checker(char character_to_check,
-		char *buffer, int *ptr, va_list args);
+		char *buffer, int *ptr, va_list args, int *second_ptr);
 
 #endif
