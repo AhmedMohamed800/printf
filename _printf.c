@@ -9,7 +9,12 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j, count = 0;
 	list_of_func print_family[] = {{_print_character, "%c"},
+<<<<<<< HEAD
 		{_print_string, "%s"}, {_print_percent, "%%"}, {_print_integer, "%d"}};
+=======
+		{_print_string, "%s"}, {_print_percent, "%%"},
+		{_print_binary, "%b"}};
+>>>>>>> 8d40a6c6c63943117d3f861912fd481d97a7c3cf
 
 	va_list(args);
 	va_start(args, format);
