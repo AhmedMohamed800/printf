@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 Back:
 	while (format[i] != '\0')
 	{
-		for (j = 0; j < 4; j++)
+		for (j = 0; j < 5; j++)
 		{
 			if ((format[i] == print_family[j].checker[0])
 					&& (format[i + 1] == print_family[j].checker[1]))

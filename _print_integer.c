@@ -10,7 +10,11 @@
 int _print_integer(va_list args)
 {
 	int count = 0;
-	int i = va_args(args, int);
+	int digits = 0;
+	int divisor = 1;
+	int j, a;
+	int i = va_arg(args, int);
+	int temp = i;
 
 	if (i < 0)
 	{
@@ -19,13 +23,25 @@ int _print_integer(va_list args)
 		count++;
 	}
 
-	if (i / 10)
+	while (temp != 0)
 	{
-		count += _print_integer(va_arg(args, int) / 10);
+		digits++;
+		temp /= 10;
 	}
 
-	_putchar(i % 10 + '0');
-	count++;
+	while (digits > 0)
+	{
+		for (j = 1; j < digits; j++)
+		{
+			divisor *= 10;
+		}
 
+		a = i / divisor;
+		_putchar(a + '0');
+		count++;
+
+		i %= divisor;
+		digits--;
+	}
 	return (count);
 }
