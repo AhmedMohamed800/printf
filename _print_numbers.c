@@ -40,15 +40,3 @@ int _print_numbers(va_list args)
 	}
 	return (count);
 }
-
-/**
- * _print_integer - prints integers
- * @args: value of arguments
- *
- * Return: number of characters to be printed
- */
-
-int _print_integer(va_list args)
-{
-	return (_print_numbers(args));
-}
