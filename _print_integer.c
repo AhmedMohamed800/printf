@@ -1,47 +1,40 @@
 #include "main.h"
 
 /**
- * _print_integer - prints an integer
- * @args: variable argument list
- *
- * Return: number of characters printed
- */
-
+* _print_integer- Prints integer
+* @args: value of arguments
+*
+* Return: numbers of characters printed
+*/
 int _print_integer(va_list args)
 {
-	int count = 0;
-	int digits = 0;
-	int divisor = 1;
-	int j, a;
-	int i = va_arg(args, int);
-	int temp = i;
+	unsigned int num, digits, temp, count;
+	int i;
+
+	count = 0;
+
+	i = va_arg(args, int);
 
 	if (i < 0)
 	{
-		_putchar('-');
-		i = -i;
-		count++;
+		num = (i * -1);
+		count += _putchar(45);
+	}
+	else
+		num = i;
+
+	digits = num;
+	temp = 1;
+	while (digits > 9)
+	{
+		digits /= 10;
+		temp *= 10;
 	}
 
-	while (temp != 0)
+	while (temp >= 1)
 	{
-		digits++;
+		count += _putchar(((num / temp) % 10) + '0');
 		temp /= 10;
-	}
-
-	while (digits > 0)
-	{
-		for (j = 1; j < digits; j++)
-		{
-			divisor *= 10;
-		}
-
-		a = i / divisor;
-		_putchar(a + '0');
-		count++;
-
-		i %= divisor;
-		digits--;
 	}
 	return (count);
 }
