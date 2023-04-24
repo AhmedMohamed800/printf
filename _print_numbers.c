@@ -9,7 +9,7 @@
 int _print_numbers(va_list args)
 {
 	int num, digits, temp, count;
-	unsigned int i;
+	int i;
 
 	count = 0;
 
