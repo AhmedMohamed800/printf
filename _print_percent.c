@@ -2,11 +2,12 @@
 
 /**
 * _print_percent - print percent character
-* @buffer: pointer to buffer variable
-* @x: pointer to x
+* @args: format arguments
+* Return: 1
 */
-void _print_percent(char *buffer, int *x)
+int _print_percent(va_list args)
 {
-	buffer[*x] = '%';
-	(*x)++;
+	UNUSED(args);
+	_putchar('%');
+	return (1);
 }

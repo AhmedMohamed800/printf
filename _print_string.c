@@ -2,14 +2,12 @@
 
 /**
 * _print_string - prints a string
-* @buffer: pointer buffer handler
-* @x: pointer to x variable
 * @args: _printf's arguments
-* Return: nothing
+* Return: value_c length
 */
-void _print_string(char *buffer, int *x, va_list args)
+int _print_string(va_list args)
 {
-	int y, i;
+	int i, len = 0;
 	char *str = "(null)";
 	char *value_c = va_arg(args, char*);
 
@@ -17,16 +15,17 @@ void _print_string(char *buffer, int *x, va_list args)
 	{
 		for (i = 0; str[i] != '\0'; i++)
 		{
-			buffer[*x] = str[i];
-			(*x)++;
+			_putchar(str[i]);
+			len += 1;
 		}
 	}
 	else
 	{
-		for (y = 0; value_c[y] != '\0'; y++)
+		for (i = 0; value_c[i] != '\0'; i++)
 		{
-			buffer[*x] = value_c[y];
-			(*x)++;
+			_putchar(value_c[i]);
+			len += 1;
 		}
 	}
+	return (len);
 }

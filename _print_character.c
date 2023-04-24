@@ -2,13 +2,11 @@
 
 /**
 * _print_character - prints characters
-* @buffer: pointer to buffer variable
-* @x: point to x variable
 * @args: _printf argumetns
-* Return: Nothing
+* Return: (1)
 */
-void _print_character(char *buffer, int *x, va_list args)
+int _print_character(va_list args)
 {
-	buffer[*x] = va_arg(args, int);
-	(*x)++;
+	_putchar(va_arg(args, int));
+	return (1);
 }
