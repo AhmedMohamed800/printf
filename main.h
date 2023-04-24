@@ -24,10 +24,6 @@ int _printf(const char *format, ...);
 int _print_percent(va_list args);
 int _print_character(va_list args);
 int _print_string(va_list args);
-<<<<<<< HEAD
 int _print_integer(va_list args);
-=======
 int _print_binary(va_list args);
->>>>>>> 8d40a6c6c63943117d3f861912fd481d97a7c3cf
-
 #endif
