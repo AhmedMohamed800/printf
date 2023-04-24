@@ -1,42 +1,54 @@
 #include "main.h"
 
 /**
-* _print_numbers - Prints integer
+* print_number - Prints numbers
+* @n: number to be printed
+*
+* Return: numbers of characters printed
+*/
+int print_number(int n)
+{
+	unsigned int num;
+	int digits, count = 0;
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (n < 0)
+	{
+		num = -n;
+		_putchar('-');
+		count++;
+	}
+	else
+	{
+		num = n;
+	}
+
+	digits = 1;
+	while ((num / digits) >= 10)
+		digits *= 10;
+
+	while (digits != 0)
+	{
+		count += 1;
+		_putchar((num / digits) % 10 + '0');
+		digits /= 10;
+	}
+
+	return (count);
+}
+
+/**
+* _print_integer- Prints integer
 * @args: value of arguments
 *
 * Return: numbers of characters printed
 */
-int _print_numbers(va_list args)
+int _print_integer(va_list args)
 {
-	int num, digits, temp, count;
-	int i;
-
-	count = 0;
-
-	i = va_arg(args, int);
-
-	if (i < 0)
-	{
-		num = (i * -1);
-		_putchar(45);
-		count += 1;
-	}
-	else
-		num = i;
-
-	digits = num;
-	temp = 1;
-	while (digits > 9)
-	{
-		digits /= 10;
-		temp *= 10;
-	}
-
-	while (temp >= 1)
-	{
-		count += 1;
-		_putchar(((num / temp) % 10) + '0');
-		temp /= 10;
-	}
-	return (count);
+	int n = va_arg(args, int);
+	return (print_number(n));
 }
