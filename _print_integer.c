@@ -9,7 +9,7 @@
 int _print_integer(va_list args)
 {
 	int num = va_arg(args, int);
-	int digits, count = 0;
+	int digits, div,  count = 0;
 
 	if (num == 0)
 	{
@@ -18,21 +18,24 @@ int _print_integer(va_list args)
 	}
 	if (num < 0)
 	{
-		num = num * -1;
 		_putchar('-');
 		count++;
+		num = -num;
 	}
 
 	digits = 1;
-	while ((num / digits) >= 10)
+	div = num;
+	while (div / 10 != 0)
 	{
 		digits *= 10;
+		div /= 10;
 	}
 	while (digits != 0)
 	{
-		count += 1;
-		_putchar(((num / digits) % 10) + '0');
+		_putchar((num / digits) + '0');
+		num %= digits;
 		digits /= 10;
+		count++;
 	}
 
 	return (count);
