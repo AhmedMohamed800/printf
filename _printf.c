@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	list_of_func print_family[] = {{_print_character, "%c"},
 		{_print_string, "%s"}, {_print_percent, "%%"},
 		{_print_binary, "%b"}, {_print_integer, "%d"},
-		{_print_int_i, "%i"}};
+		{_print_integer, "%i"}};
 
 	va_list(args);
 	va_start(args, format);
