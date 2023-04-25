@@ -10,7 +10,8 @@ int _printf(const char *format, ...)
 	int i = 0, j, count = 0;
 	list_of_func print_family[] = {{_print_character, "%c"},
 		{_print_string, "%s"}, {_print_percent, "%%"},
-		{_print_binary, "%b"}, {_print_integer, "%d"}};
+		{_print_binary, "%b"}, {_print_integer, "%d"},
+		{_print_unsign, "%i"}};
 
 	va_list(args);
 	va_start(args, format);
@@ -19,7 +20,7 @@ int _printf(const char *format, ...)
 Back:
 	while (format[i] != '\0')
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 6; j++)
 		{
 			if ((format[i] == print_family[j].checker[0])
 					&& (format[i + 1] == print_family[j].checker[1]))

@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-* print_number - Prints numbers
-* @n: number to be printed
+* _print_integer - print integer
+* @args: integer to be printed
 *
 * Return: numbers of characters printed
 */
-int print_number(int n)
+int _print_integer(va_list args)
 {
-	unsigned int num;
+	int num = va_arg(args, int), n = num;
 	int digits, count = 0;
 
 	if (n == 0)
@@ -39,16 +39,4 @@ int print_number(int n)
 	}
 
 	return (count);
-}
-
-/**
-* _print_integer- Prints integer
-* @args: value of arguments
-*
-* Return: numbers of characters printed
-*/
-int _print_integer(va_list args)
-{
-	int n = va_arg(args, int);
-	return (print_number(n));
 }
