@@ -8,35 +8,39 @@
 */
 int _print_integer(va_list args)
 {
-	int num = va_arg(args, int);
-	int digits, div,  count = 0;
+	int n = va_arg(args, int);
+	int num, last = n % 10, digit, div = 1;
+	int count = 1;
 
-	if (num == 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
-		_putchar('0');
-		return (1);
-	}
-	if (num < 0)
-	{
-		num = num * -1;
 		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
 		count++;
 	}
-
-	digits = 1;
-	div = num;
-	while ((num / digits) >= 10 || div >= 10)
+	if (num > 0)
 	{
-		digits *= 10;
-		div /= 10;
+		while (num / 10 != 0)
+		{
+			div = div * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (div > 0)
+		{
+			digit = num / div;
+			_putchar(digit + '0');
+			num = num - (digit * div);
+			div = div / 10;
+			count++;
+		}
 	}
-	while (digits != 0)
-	{
-		count += 1;
-		_putchar(((num / digits) % 10) + '0');
-		num %= digits;
-		digits /= 10;
-	}
+	_putchar(last + '0');
 
 	return (count);
 }
